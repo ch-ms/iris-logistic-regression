@@ -1,5 +1,6 @@
 %
-% Предсказания для iris-dataset
+% Linear regression predictions for iris-dataset
+% Author: Evgeniy Kuznetsov
 %
 
 % Load dataset
@@ -10,10 +11,11 @@ load ./irisData.mat;
 
 % Split dataset
 data = irisData;
+% Choose SepalLengthCm, PetalLengthCm features
 data = data(:, [2, 4, 6]);
 data = [ones(size(data)(1), 1), data];
-all_X = data(:, [1,2,3]);
-all_y = data(:, 4);
+all_X = data(:, 1:(size(data)(2) - 1));
+all_y = data(:, size(data)(2));
 classes = unique(data(:, size(data)(2)));
 
 [train_X, test_X, cv_X, train_y, cv_y, test_y] = splitData(data, classes);
@@ -49,7 +51,7 @@ true_predictions = find(predictions == cv_y);
 
 accuracy = length(true_predictions)/length(cv_y);
 
-fprintf("Accuracy is %i \n\n", accuracy);
+fprintf("Accuracy on CV set is %i \n\n", accuracy);
 
 
 % Predict
