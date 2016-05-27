@@ -12,6 +12,8 @@ load ./irisData.mat;
 data = irisData;
 data = data(:, [2, 4, 6]);
 data = [ones(size(data)(1), 1), data];
+all_X = data(:, [1,2,3]);
+all_y = data(:, 4);
 classes = unique(data(:, size(data)(2)));
 
 [train_X, test_X, cv_X, train_y, cv_y, test_y] = splitData(data, classes);
@@ -33,7 +35,7 @@ fprintf("Learning complete!\n\n");
 
 
 % Visualize decision boundaries
-visualizeDecisionBoundary(classNames, all_theta, data(:, [1,2,3]), data(:, 4));
+visualizeDecisionBoundary(classNames, all_theta, all_X, all_y);
 disp("Press any key to continue");
 pause;
 
