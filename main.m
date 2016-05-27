@@ -41,19 +41,22 @@ pause;
 % Validate
 % disp("Validation.");
 
-% predictions = find(round(sigmoid(cv_X * theta)) == cv_y);
+predictions = predict(cv_X, all_theta);
 
-% accuracy = length(predictions)/length(cv_y);
+true_predictions = find(predictions == cv_y);
 
-% fprintf("Accuracy is %i \n\n", accuracy);
+accuracy = length(true_predictions)/length(cv_y);
+
+fprintf("Accuracy is %i \n\n", accuracy);
 
 
 % Predict
-% disp("Predictions.");
+disp("Predictions.");
 
-% for i = 1:length(test_X)
-%  prediction = round(sigmoid(test_X(i, :) * theta));
-%  actual = test_y(i);
-%  % fprintf("Prediction/actual %i = %i.\n", prediction, actual);
-% endfor
+predictions = predict(test_X, all_theta);
+
+for i = 1:length(test_X)
+  actual = test_y(i);
+  fprintf("Prediction/actual %i = %i.\n", predictions(i), actual);
+endfor
 
