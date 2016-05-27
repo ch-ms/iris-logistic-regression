@@ -20,9 +20,9 @@ classes = unique(data(:, size(data)(2)));
 
 
 % Visualize
-% visualize(train_X, train_y, classNames);
-% disp("Press any key to continue");
-% pause;
+visualize(all_X, all_y, classNames);
+disp("Press any key to continue");
+pause;
 
 
 % Learn
