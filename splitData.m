@@ -1,5 +1,7 @@
 function [train_X, test_X, cv_X, train_y, cv_y, test_y] = splitData(data, classes)
 
+  data = data(randperm(size(data)(1)), :);
+
   y = data(:, size(data)(2));
 
   ratio = .12;
