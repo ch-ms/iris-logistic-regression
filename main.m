@@ -1,5 +1,5 @@
 %
-% Linear regression predictions for iris-dataset
+% Logistic regression predictions for iris-dataset
 % Author: Evgeniy Kuznetsov
 %
 
